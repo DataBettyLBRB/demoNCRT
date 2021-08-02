@@ -111,7 +111,7 @@ websocket-client==1.1.0
 websockets==9.1
 Werkzeug==2.0.1
 widgetsnbextension==3.5.1
-xcode==0.0.1
+
 zope.interface==5.4.0
 
 Pillow>=8.2.0
