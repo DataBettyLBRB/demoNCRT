@@ -1,6 +1,5 @@
 import read_files as reader
 import date_files as datefile
-import webIO as io
 
 from pywebio.platform.flask import webio_view
 from pywebio.output import *
@@ -36,12 +35,20 @@ def main():
 
     rows = [a, b, c]
 
+    put_html('<h3>Edited Data Goes Here</h3>')
     put_table([
         cols,
         rows
     ])
 
 
+app.add_url_rule('/', 'webio_view', webio_view(main),
+                 methods=['GET', 'POST', 'OPTIONS'])
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--port", type=int, default=8080)
+    args = parser.parse_args()
+
+    start_server(main, port=args.port, auto_open_webbrowser=True)
