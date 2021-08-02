@@ -76,7 +76,6 @@ pycparser==2.20
 PyDispatcher==2.0.5
 Pygments>=2.9.0
 PyHamcrest==2.0.2
-pyobjus==1.2.0
 pyOpenSSL==20.0.0
 pyparsing==2.4.7
 PyPDF2==1.26.0
