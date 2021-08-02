@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import webIO as io
 from pywebio.input import file_upload
 
 
@@ -20,7 +21,7 @@ def read_xlsx(file, sheet_name=''):
 
 
 def read_NCRT_files(cols):
-    list_files = file_upload(label="Upload your file", multiple=True, accept='.xlsx')
+    list_files = io.userXLSXUpload()
 
     dfs = []
 
@@ -29,7 +30,7 @@ def read_NCRT_files(cols):
 
         df = pd.DataFrame(read_file)
         df = df.rename(columns=df.iloc[0]).drop(df.index[0])
-        df = df[cols]
+        df = df[cols].dropna()
 
         dfs.append(df)
 
