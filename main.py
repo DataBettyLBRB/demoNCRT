@@ -1,11 +1,10 @@
 import read_files as reader
 import date_files as datefile
 
+from pywebio.platform.flask import webio_view
 from pywebio.output import *
-
 from pywebio import start_server
 from flask import Flask
-
 
 import argparse
 
@@ -35,6 +34,8 @@ def main():
          results['DoDAAC']]
     ])
 
+
+app.add_url_rule('/', 'webio_view', webio_view(main), methods=['GET', 'POST', 'OPTIONS'])
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
