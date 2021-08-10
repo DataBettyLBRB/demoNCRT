@@ -31,20 +31,21 @@ def main():
 
     final_results = results.groupby(['requisition', 'VISN', 'DoDAAC']).agg({each_col: sum,
                                                                             case_col: sum}).reset_index()
+    print(final_results)
 
     data_cols = ['Requisition', 'VISN', 'DoDAAC', 'Count of EACH', 'Count of CASE']
 
-    req = results['requisition']
-    visn = results[visn_col]
-    dodaac = results[dodaac_col]
-    each = results[each_col]
-    case = results[case_col]
+    req = results['requisition'].to_string(index=False)
+    visn = results[visn_col].to_string(index=False)
+    dodaac = results[dodaac_col].to_string(index=False)
+    each = results[each_col].to_string(index=False)
+    case = results[case_col].to_string(index=False)
 
-    req_f = final_results['requisition']
-    visn_f = final_results[visn_col]
-    dodaac_f = final_results[dodaac_col]
-    each_f = final_results[each_col]
-    case_f = final_results[case_col]
+    req_f = final_results['requisition'].to_string(index=False)
+    visn_f = final_results[visn_col].to_string(index=False)
+    dodaac_f = final_results[dodaac_col].to_string(index=False)
+    each_f = final_results[each_col].to_string(index=False)
+    case_f = final_results[case_col].to_string(index=False)
 
     rows_1 = [req, visn, dodaac, each, case]
     rows_2 = [req_f, visn_f, dodaac_f, each_f, case_f]
